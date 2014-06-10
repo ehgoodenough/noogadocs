@@ -1,4 +1,6 @@
 @import url(fonts/chatype.css);
+@import url(fonts/fontawesome.css);
+@import url(fonts/ubuntu-light.css);
 
 *
 {
@@ -19,6 +21,7 @@ body
 {
 	margin: auto;
 	overflow: auto;
+	/*min-width: 320px;*/
 	max-width: 960px;
 	min-height: 100vh;
 	padding: 0rem 2rem;
@@ -64,6 +67,7 @@ h1
 #left
 {
 	width: 50%;
+	min-height: 135px;
 	padding-right: 1em;
 	box-sizing: border-box;
 }
@@ -85,7 +89,39 @@ h1
 	}
 }
 
+#left.only
+{
+	width: auto;
+	padding-right: 0px;
+}
 
+
+
+button
+{
+	display: block;
+	margin: 2rem auto;
+	padding: 1em 1.5em;
+	
+	color: #EFEFEF;
+	font-size: inherit;
+	font-family: inherit;
+	
+	border-width: 2px;
+	border-radius: 6px;
+	border-style: solid;
+	border-color: #D43F3A;
+	
+	cursor: pointer;
+	background-color: #D9534F;
+}
+
+#edit > h2
+{
+	font-size: 2em;
+	text-align: center;
+	font-weight: normal;
+}
 
 #edit > span
 {
@@ -105,6 +141,7 @@ h1
 	height: 5em;
 	resize: none;
 	display: block;
+	padding: 0.5em;
 	margin-top: 0.5em;
 	border-radius: 6px;
 	box-sizing: border-box;
@@ -129,8 +166,18 @@ h1
 	border-bottom: none;
 	border-bottom: none;
 	
+	background-color: #EFEFEF;
+}
+
+#view > ul > li:hover
+{
 	cursor: pointer;
-	background-color: #EEE;
+	background-color: #F8F8F8;
+}
+
+#view > ul > li.selected
+{
+	background-color: #FFF;
 }
 
 #view > ul > li:first-of-type

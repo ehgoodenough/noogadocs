@@ -6,25 +6,31 @@
 	<div id="container">
 		<h1>Nooga Docs</h1>
 		
-		<div id="anchor">
-			<div id="right">
-				{{> edit}}
-			</div>
-			<div id="left">
-				{{> view}}
-			</div>
-		</div>
+		{{> content}}
 	</div>
 </body>
+
+<template name="content">
+	<div id="anchor">
+		<div id="right">
+			{{> edit}}
+		</div>
+		<div id="left" class="{{only}}">
+			{{> view}}
+		</div>
+	</div>
+	
+	<button>
+		<i class="fa fa-plus-circle"></i>
+		<span>Make a new doc!</span>
+	</button>
+</template>
 
 <template name="edit">
 	<div id="edit">
 		{{#with doc}}
 			<span>{{name}}</span>
 			<textarea>{{text}}</textarea>
-		{{else}}
-			<span>Hello World!</span>
-			<textarea>Nothing here yet!</textarea>
 		{{/with}}
 	</div>
 </template>
@@ -33,7 +39,9 @@
 	<div id="view">
 		<ul>
 			{{#each list}}
-				<li>{{name}}</li>
+				<li class="{{selected}}">
+					{{name}}
+				</li>
 			{{/each}}
 		</ul>
 	</div>

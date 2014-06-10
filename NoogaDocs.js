@@ -2,6 +2,23 @@ var docs = new Meteor.Collection("docs");
 
 if(Meteor.isClient)
 {
+	Template.content.only = function()
+	{
+		if(!Session.get("_id"))
+		{
+			return "only";
+		}
+	}
+	
+	Template.content.events =
+	{
+		"click button": function()
+		{
+			var _id = docs.insert({name: "untitled", text: ""});
+			Session.set("_id", _id);
+		}
+	}
+	
 	Template.edit.doc = function()
 	{
 		var _id = Session.get("_id");
@@ -29,7 +46,15 @@ if(Meteor.isClient)
 	
 	Template.view.list = function()
 	{
-		return docs.find();
+		return docs.find({}, {sort: {name: 1}});
+	}
+	
+	Template.view.selected = function()
+	{
+		if(this._id == Session.get("_id"))
+		{
+			return "selected";
+		}
 	}
 	
 	Template.view.events =
@@ -46,8 +71,5 @@ if(Meteor.isServer)
 	Meteor.startup(function()
 	{
 		docs.remove({});
-		docs.insert({name: "mydoc", text: "1"});
-		docs.insert({name: "mydoc", text: "2"});
-		docs.insert({name: "mydoc", text: "3"});
 	});
 }
