@@ -2,47 +2,45 @@ var docs = new Meteor.Collection("docs");
 
 if(Meteor.isClient)
 {
-	Template.content.only = function()
+	Session.set("selected", undefined);
+	
+	Template.content.selected = function()
 	{
-		if(!Session.get("_id"))
-		{
-			return "only";
-		}
+		return Session.get("selected");
 	}
 	
-	Template.content.events =
+	Template.content.events(
 	{
 		"click button": function()
 		{
-			var _id = docs.insert({name: "untitled", text: ""});
-			Session.set("_id", _id);
+			var doc = {name: "untitled doc", text: ""};
+			var _id = docs.insert(doc);
+			Session.set("selected", _id);
 		}
-	}
+	});
 	
 	Template.edit.doc = function()
 	{
-		var _id = Session.get("_id");
-		var doc = docs.findOne(_id);
-		
-		return doc;
+		var _id = Session.get("selected");
+		return docs.findOne(_id);
 	}
 	
-	Template.edit.events =
+	Template.edit.events(
 	{
 		"keyup textarea": function(event)
 		{
 			var value = event.target.value;
-			var _id = Session.get("_id");
-			
+			var _id = Session.get("selected");
 			docs.update(_id, {$set: {text: value}});
 		},
-		"click span": function()
+		"click span": function(event)
 		{
-			var doc = docs.findOne(Session.get("_id"));
-			var value = prompt("Rename the doc?", doc.name);
-			docs.update(Session.get("_id"), {$set: {name: value}});
+			var _id = Session.get("selected")
+			var name = docs.findOne(_id).name;
+			var value = prompt("Rename the doc?", name) || name;
+			docs.update(_id, {$set: {name: value}});
 		}
-	}
+	});
 	
 	Template.view.list = function()
 	{
@@ -51,19 +49,19 @@ if(Meteor.isClient)
 	
 	Template.view.selected = function()
 	{
-		if(this._id == Session.get("_id"))
+		if(this._id == Session.get("selected"))
 		{
 			return "selected";
 		}
 	}
 	
-	Template.view.events =
+	Template.view.events(
 	{
 		"click li": function()
 		{
-			Session.set("_id", this._id);
+			Session.set("selected", this._id);
 		}
-	}
+	});
 }
 
 if(Meteor.isServer)
