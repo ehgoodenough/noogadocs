@@ -1,4 +1,45 @@
+@import url(fonts/chatype.css);
+
 *
 {
 	margin: 0px;
+}
+
+body
+{
+	color: #333;
+	font-size: 18px;
+	font-family: ubuntu-light, calibri, sans-serif;
+	
+	background-size: cover;
+	background-image: url("chattanooga.jpg");
+}
+
+#container
+{
+	margin: auto;
+	overflow: auto;
+	padding: 0em 1em;
+	min-width: 320px;
+	max-width: 960px;
+	min-height: 100vh;
+	
+	border-width: 2px;
+	border-color: #333;
+	border-style: solid;
+	border-top: none;
+	border-bottom: none;
+	
+	background-position: center;
+	background-image: url("hoffman.png");
+	background-color: rgba(192, 192, 192, 0.25);
+}
+
+h1
+{
+	margin: 1rem 0em;
+	
+	font-size: 4em;
+	text-align: center;
+	font-family: chatype;
 }
