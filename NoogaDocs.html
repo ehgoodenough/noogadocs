@@ -5,32 +5,36 @@
 <body>
 	<div id="container">
 		<h1>Nooga Docs</h1>
-		{{> content}}
+		
+		<div id="anchor">
+			<div id="right">
+				{{> edit}}
+			</div>
+			<div id="left">
+				{{> view}}
+			</div>
+		</div>
 	</div>
 </body>
 
-<template name="content">
-	{{#if doc}}
-		{{#with doc}}
-			{{> edit}}
-		{{/with}}
-	{{else}}
-		{{> view}}
-	{{/if}}
-</template>
-
 <template name="edit">
-	<span>{{name}}</span>
-	<textarea>{{text}}</textarea>
-	<a id="back">back</a>
+	<div id="edit">
+		{{#with doc}}
+			<span>{{name}}</span>
+			<textarea>{{text}}</textarea>
+		{{else}}
+			<span>Hello World!</span>
+			<textarea>Nothing here yet!</textarea>
+		{{/with}}
+	</div>
 </template>
 
 <template name="view">
-	<ul>
-		{{#each list}}
-			<li>
-				{{name}}
-			</li>
-		{{/each}}
-	</ul>
+	<div id="view">
+		<ul>
+			{{#each list}}
+				<li>{{name}}</li>
+			{{/each}}
+		</ul>
+	</div>
 </template>
