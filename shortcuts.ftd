@@ -1,0 +1,110 @@
+template
+Lang:JS
+Template.$[![name]!].$[![field]!] = function()
+{
+	return $[0[]0]
+}[>END<]!$[FingerTextData FingerTextData]@#
+startup
+Lang:JS
+Meteor.startup(function()
+{
+	$[0[]0]
+});[>END<]!$[FingerTextData FingerTextData]@#
+if
+Lang:JS
+if($[![condition]!])
+{
+	$[0[]0]
+}[>END<]!$[FingerTextData FingerTextData]@#
+function
+Lang:JS
+function()
+{
+	$[0[]0]
+}[>END<]!$[FingerTextData FingerTextData]@#
+events
+Lang:JS
+Template.$[![name]!].events(
+{
+	"$[![event]!]": function(event)
+	{
+		$[0[]0]
+	}
+});[>END<]!$[FingerTextData FingerTextData]@#
+collection
+Lang:JS
+var $[![handle]!] = new Meteor.Collection("$[![handle]!]");[>END<]!$[FingerTextData FingerTextData]@#
+with
+Lang:HTML
+{{#with $[![object]!]}}
+	$[0[]0]
+{{/with}}[>END<]!$[FingerTextData FingerTextData]@#
+ul
+Lang:HTML
+<ul>
+	$[0[]0]
+</ul>[>END<]!$[FingerTextData FingerTextData]@#
+title
+Lang:HTML
+<title>$[![text]!]</title>$[0[]0][>END<]!$[FingerTextData FingerTextData]@#
+textarea
+Lang:HTML
+<textarea>$[![text]!]</textarea>$[0[]0][>END<]!$[FingerTextData FingerTextData]@#
+template
+Lang:HTML
+<template name="$[![name]!]">
+	<div id="$[![name]!]">
+		$[0[]0]
+	</div>
+</template>[>END<]!$[FingerTextData FingerTextData]@#
+span
+Lang:HTML
+<span>$[![text]!]</span>$[0[]0][>END<]!$[FingerTextData FingerTextData]@#
+li
+Lang:HTML
+<li>
+	$[0[]0]
+</li>[>END<]!$[FingerTextData FingerTextData]@#
+ifelse
+Lang:HTML
+{{#if $[![condition]!]}}
+	$[![]!]
+{{else}}
+	$[0[]0]
+{{/if}}[>END<]!$[FingerTextData FingerTextData]@#
+if
+Lang:HTML
+{{#if $[![condition]!]}}
+	$[0[]0]
+{{/if}}[>END<]!$[FingerTextData FingerTextData]@#
+head
+Lang:HTML
+<head>
+	$[0[]0]
+</head>[>END<]!$[FingerTextData FingerTextData]@#
+h1
+Lang:HTML
+<h1>$[![text]!]</h1>$[0[]0][>END<]!$[FingerTextData FingerTextData]@#
+fa
+Lang:HTML
+<i class="fa fa-$[![plus-circle]!]"></i>$[0[]0][>END<]!$[FingerTextData FingerTextData]@#
+each
+Lang:HTML
+{{#each $[![collection]!]}}
+	$[0[]0]
+{{/each}}[>END<]!$[FingerTextData FingerTextData]@#
+div
+Lang:HTML
+<div id="$[![id]!]">
+	$[0[]0]
+</div>[>END<]!$[FingerTextData FingerTextData]@#
+button
+Lang:HTML
+<button>
+	$[0[]0]
+</button>[>END<]!$[FingerTextData FingerTextData]@#
+body
+Lang:HTML
+<body>
+	$[0[]0]
+</body>[>END<]!$[FingerTextData FingerTextData]@#
