@@ -1,0 +1,2 @@
+todo: fix the css to be more generalized.
+todo: update the database with diffs not vals.
